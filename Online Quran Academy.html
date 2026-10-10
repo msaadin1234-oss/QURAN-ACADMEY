@@ -1,0 +1,1213 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Online Quran Academy</title>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* Online Quran Academy: styles. Edit the colour tokens below to re-theme. */
+:root {
+  --emerald: #0f7b5a;
+  --emerald-dark: #0a5f45;
+  --forest: #0b3d2e;
+  --deep: #072a20;
+  --gold: #c9a24b;
+  --gold-light: #e8cf8a;
+  --cream: #f6f1e3;
+  --white: #fff;
+  --ink: #1d2b26;
+  --muted: #55655f;
+  --line: #e3dcc7;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(7, 42, 32, .12);
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23c9a24b' stroke-opacity='.22' stroke-width='1'%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='28'/%3E%3C/g%3E%3C/svg%3E");
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.65; font-size: 17px; -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; }
+a { color: var(--emerald-dark); }
+a:hover { color: var(--forest); }
+h1, h2, h3, h4 { font-family: var(--serif); color: var(--forest); line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 1em; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+.sr-only { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; left: 8px; top: -60px; background: var(--gold); color: var(--deep); padding: 10px 16px; border-radius: 8px; z-index: 200; font-weight: 700; }
+.skip-link:focus { top: 8px; }
+.container { width: min(1180px, 100% - 40px); margin-inline: auto; }
+.container.narrow { width: min(820px, 100% - 40px); }
+.center { text-align: center; }
+.muted { color: var(--muted); }
+.small { font-size: .9rem; }
+.gold { color: var(--gold-light); }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; font-weight: 700; color: var(--emerald); margin-bottom: .6em; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; padding: .85em 1.5em; border-radius: 999px; font: 700 1rem var(--sans); text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s, color .2s; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0, 0, 0, .18); }
+.btn:disabled { opacity: .65; cursor: progress; transform: none; }
+.btn-sm { padding: .55em 1.2em; font-size: .95rem; }
+.btn-block { width: 100%; }
+.btn-gold { background: linear-gradient(135deg, #e8cf8a, #c9a24b); color: var(--deep); }
+.btn-gold:hover { color: var(--deep); }
+.btn-green { background: var(--emerald); color: #fff; }
+.btn-green:hover { background: var(--emerald-dark); color: #fff; }
+.btn-outline-light { border-color: rgba(255, 255, 255, .7); color: #fff; background: transparent; }
+.btn-outline-light:hover { background: #fff; color: var(--forest); }
+.btn-outline-green { border-color: var(--emerald); color: var(--emerald-dark); background: transparent; }
+.btn-outline-green:hover { background: var(--emerald); color: #fff; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 14px; margin: 1.4em 0; }
+.ico { width: 1.25em; height: 1.25em; }
+
+/* Header */
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 100; background: rgba(7, 42, 32, .96); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(201, 162, 75, .35); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+.brand:hover { color: #fff; }
+.brand-logo { width: 44px; height: 44px; flex: none; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-text strong { font-family: var(--serif); font-size: 1.1rem; }
+.brand-text small { color: var(--gold-light); font-size: .8rem; }
+.primary-nav { display: flex; align-items: center; gap: 20px; }
+.primary-nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.primary-nav li a:not(.btn) { color: #e9efe9; text-decoration: none; padding: 8px 10px; border-radius: 8px; font-size: .95rem; }
+.primary-nav li a:not(.btn):hover, .primary-nav li a[aria-current] { color: var(--gold-light); background: rgba(255, 255, 255, .07); }
+.nav-toggle { display: none; background: none; border: 1px solid rgba(255, 255, 255, .4); border-radius: 10px; width: 46px; height: 46px; cursor: pointer; align-items: center; justify-content: center; }
+.bars, .bars::before, .bars::after { display: block; width: 22px; height: 2px; background: #fff; position: relative; content: ""; transition: transform .2s; }
+.bars::before { position: absolute; top: -7px; }
+.bars::after { position: absolute; top: 7px; }
+.nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+.nav-toggle[aria-expanded="true"] .bars::before { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .bars::after { transform: translateY(-7px) rotate(-45deg); }
+
+/* Hero */
+.hero { position: relative; color: #fff; background: radial-gradient(1000px 500px at 85% 20%, rgba(15, 123, 90, .55), transparent 60%), linear-gradient(160deg, var(--deep), var(--forest) 60%, #0d4d38); overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; background-image: var(--pattern); opacity: .9; }
+.hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding: 72px 0 80px; }
+.hero h1 { color: #fff; }
+.bismillah { font-family: "Amiri", "Traditional Arabic", "Scheherazade New", serif; font-size: 1.7rem; color: var(--gold-light); margin-bottom: .6em; text-align: left; }
+.lead { font-size: 1.12rem; color: #e4ede7; max-width: 60ch; }
+.trust-list { list-style: none; padding: 0; margin: 1.6em 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.trust-list li { background: rgba(255, 255, 255, .07); border: 1px solid rgba(201, 162, 75, .4); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 2px; }
+.trust-list strong { font-family: var(--serif); font-size: 1.35rem; color: var(--gold-light); }
+.trust-list span { font-size: .88rem; color: #dbe6df; line-height: 1.35; }
+.hero-eligibility { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; background: rgba(0, 0, 0, .22); border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 8px; font-size: .95rem; }
+.hero-eligibility a { color: var(--gold-light); font-weight: 700; }
+.hero-art { width: 100%; height: auto; filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .35)); animation: float 7s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-10px); } }
+
+/* Sections */
+.section { padding: 84px 0; }
+.section-cream { background: var(--cream); }
+.section-dark { background: linear-gradient(160deg, var(--deep), var(--forest)); color: #e9f1ec; position: relative; }
+.section-dark h2 { color: #fff; }
+.section-dark .eyebrow { color: var(--gold-light); }
+.pattern { background-image: var(--pattern); }
+.section-dark.pattern { background-image: var(--pattern), linear-gradient(160deg, var(--deep), var(--forest)); }
+.section-head { max-width: 720px; margin: 0 auto 44px; text-align: center; }
+
+.check-list { list-style: none; padding: 0; margin: 0 0 1em; }
+.check-list li { position: relative; padding-left: 28px; margin-bottom: .45em; }
+.check-list li::before { content: ""; position: absolute; left: 0; top: .5em; width: 14px; height: 8px; border-left: 3px solid var(--gold); border-bottom: 3px solid var(--gold); transform: rotate(-45deg); }
+.check-list.two-col { columns: 2; column-gap: 24px; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; }
+.teacher-card { background: #fff; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); }
+.teacher-photo { aspect-ratio: 4 / 3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: var(--pattern), linear-gradient(160deg, var(--forest), var(--emerald)); color: #fff; }
+.teacher-photo.has-photo { background: var(--cream); }
+.teacher-photo img { width: 100%; height: 100%; object-fit: cover; }
+.placeholder-logo { width: 96px; height: 96px; }
+.photo-label { font-size: .9rem; color: var(--gold-light); }
+.teacher-body { padding: 24px 28px 28px; }
+
+/* Courses */
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; }
+.course-card { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--gold); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; box-shadow: 0 4px 14px rgba(7, 42, 32, .06); transition: transform .25s, box-shadow .25s; }
+.course-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.course-icon { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: linear-gradient(135deg, var(--forest), var(--emerald)); color: var(--gold-light); margin-bottom: 16px; }
+.course-desc { color: var(--muted); }
+.small-h { font-family: var(--sans); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--emerald); margin: .6em 0 .6em; }
+.more-count { color: var(--muted); font-size: .9rem; margin-top: -.3em; }
+.course-card .btn { margin-top: auto; align-self: flex-start; }
+
+/* Eligibility */
+.elig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; margin-bottom: 32px; }
+.elig-card { border-radius: var(--radius); padding: 28px; text-align: center; border: 2px solid var(--line); background: #fff; }
+.elig-card.yes { border-color: var(--emerald); background: #f1faf6; }
+.elig-card.no { border-color: #b9a37a; background: #faf5ea; }
+.elig-ico { width: 44px; height: 44px; padding: 10px; border-radius: 50%; margin-bottom: 10px; }
+.elig-card.yes .elig-ico { background: var(--emerald); color: #fff; }
+.elig-card.no .elig-ico { background: #8a6d2f; color: #fff; }
+.elig-inline { background: #fff; border-left: 5px solid var(--gold); padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0, 0, 0, .05); }
+
+/* Language */
+.lang-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 820px; margin: 0 auto 24px; }
+.lang-card { background: #fff; border-radius: var(--radius); padding: 30px; text-align: center; border: 1px solid var(--line); transition: transform .25s, box-shadow .25s; }
+.lang-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.lang-badge { display: inline-grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; background: var(--forest); color: var(--gold-light); font: 700 1.4rem var(--serif); margin-bottom: 14px; border: 3px solid var(--gold); }
+.lang-badge.urdu { font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Amiri", serif; font-size: 1.5rem; }
+
+/* UK stat */
+.uk-grid { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }
+.ring-wrap { position: relative; width: 260px; height: 260px; margin-inline: auto; }
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: rgba(255, 255, 255, .15); stroke-width: 12; }
+.ring-fg { fill: none; stroke: var(--gold); stroke-width: 12; stroke-linecap: round; transition: stroke-dashoffset 1.2s ease; }
+.ring-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.ring-num { font: 700 3.2rem var(--serif); color: #fff; line-height: 1; }
+.ring-sub { color: var(--gold-light); letter-spacing: .2em; font-weight: 700; }
+
+/* Testimonials */
+.sample-banner { background: #fff8e1; border: 1px dashed #b8902f; color: #5c4510; border-radius: 10px; padding: 12px 16px; margin: 0 auto 24px; max-width: 820px; font-size: .95rem; }
+.carousel { position: relative; padding: 0 30px; }
+.car-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 6px 2px 14px; }
+.car-track::-webkit-scrollbar { display: none; }
+.tcard { position: relative; margin: 0; flex: 0 0 100%; scroll-snap-align: start; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px 24px; }
+@media (min-width: 640px) { .tcard { flex-basis: calc((100% - 20px) / 2); } }
+@media (min-width: 1000px) { .tcard { flex-basis: calc((100% - 40px) / 3); } }
+.sample-tag { display: inline-block; background: #fff8e1; border: 1px dashed #b8902f; color: #5c4510; font-size: .75rem; font-weight: 700; border-radius: 999px; padding: 2px 10px; margin-bottom: 10px; }
+.quote-mark { position: absolute; top: 4px; right: 18px; font: 6rem/1 var(--serif); color: var(--gold); opacity: .35; }
+.tcard .topic { font-weight: 700; color: var(--emerald-dark); margin-bottom: .4em; }
+.tcard blockquote { margin: 0 0 1em; font-style: italic; }
+.tcard figcaption { color: var(--muted); font-size: .9rem; }
+.car-btn { position: absolute; top: 45%; transform: translateY(-50%); z-index: 2; width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold); background: var(--forest); color: #fff; font-size: 1.6rem; line-height: 1; cursor: pointer; }
+.car-btn:hover { background: var(--emerald); }
+.car-btn.prev { left: -6px; } .car-btn.next { right: -6px; }
+
+/* Steps */
+.steps { list-style: none; counter-reset: s; padding: 0; margin: 0 0 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
+.steps li { background: #fff; border-radius: var(--radius); padding: 26px; border: 1px solid var(--line); position: relative; }
+.step-num { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--forest); color: var(--gold-light); font: 700 1.3rem var(--serif); border: 2px solid var(--gold); margin-bottom: 12px; }
+
+/* Contact */
+.contact-panel { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; background: linear-gradient(160deg, var(--deep), var(--forest)); color: #e9f1ec; border-radius: 26px; padding: 48px; background-image: var(--pattern), linear-gradient(160deg, var(--deep), var(--forest)); box-shadow: var(--shadow); }
+.contact-panel h2 { color: #fff; }
+.contact-panel .eyebrow { color: var(--gold-light); }
+.contact-list { margin: 0; display: grid; gap: 14px; align-content: center; }
+.contact-list > div { background: rgba(255, 255, 255, .08); border: 1px solid rgba(201, 162, 75, .4); border-radius: 12px; padding: 14px 18px; }
+.contact-list dt { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-light); }
+.contact-list dd { margin: 2px 0 0; font-weight: 600; word-break: break-word; }
+.contact-list a { color: #fff; }
+
+/* Form */
+.form { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 32px; box-shadow: var(--shadow); }
+.field { margin: 0 0 20px; padding: 0; border: 0; min-width: 0; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+label, legend { display: block; font-weight: 600; margin-bottom: 6px; padding: 0; }
+.req { color: #a33; }
+.hint { color: var(--muted); font-weight: 400; font-size: .88rem; margin: 4px 0 0; }
+input[type=text], input[type=number], select, textarea { width: 100%; font: inherit; padding: 12px 14px; border: 1.5px solid #b9c4be; border-radius: 10px; background: #fff; color: var(--ink); }
+input:focus, select:focus, textarea:focus { outline: 3px solid var(--gold); border-color: var(--emerald); }
+[aria-invalid="true"] { border-color: #b3261e !important; background: #fff7f6; }
+.field-error { color: #b3261e; font-size: .9rem; font-weight: 600; margin: 6px 0 0; }
+.radio-row { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.radio, .checkbox { display: flex; align-items: flex-start; gap: 10px; font-weight: 500; cursor: pointer; margin: 0; }
+.radio input, .checkbox input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--emerald); flex: none; }
+.ack { background: #f1faf6; border: 1px solid var(--emerald); border-radius: 12px; padding: 14px 16px; }
+.hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+.form-status { border-radius: 12px; padding: 16px 18px; margin-bottom: 20px; }
+.form-status.info { background: #fff8e1; border: 1px solid #b8902f; color: #4a3708; }
+.form-status.success { background: #eaf7ef; border: 1px solid var(--emerald); color: #0c4a34; }
+.form-status.error { background: #fdecea; border: 1px solid #b3261e; color: #6d1510; }
+.form-status p { margin: .4em 0 0; }
+.form-status .btn-row { margin-bottom: 0; }
+.owner-notice { background: #fff8e1; border: 2px dashed #b8902f; color: #4a3708; border-radius: 10px; padding: 10px 14px; font-size: .88rem; margin: 14px 0; }
+.owner-notice code { background: rgba(0, 0, 0, .07); padding: 1px 5px; border-radius: 4px; }
+
+/* FAQ */
+.faq-item { border: 1px solid var(--line); border-radius: 14px; margin-bottom: 12px; background: #fff; overflow: hidden; }
+.faq-item[open] { border-color: var(--emerald); box-shadow: 0 6px 18px rgba(7, 42, 32, .08); }
+.faq-item summary { cursor: pointer; list-style: none; padding: 18px 56px 18px 22px; font-weight: 700; position: relative; color: var(--forest); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; position: absolute; right: 22px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; color: var(--gold); transition: transform .25s; }
+.faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq-a { padding: 0 22px 8px; animation: fade .3s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(-4px); } }
+
+/* Modal */
+.modal { border: 0; border-radius: 22px; padding: 0; width: min(560px, calc(100% - 32px)); max-height: 90vh; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); }
+.modal::backdrop { background: rgba(7, 42, 32, .65); backdrop-filter: blur(3px); }
+.modal-inner { padding: 32px; position: relative; }
+.modal-close { position: absolute; top: 12px; right: 14px; background: none; border: 0; font-size: 2rem; cursor: pointer; color: var(--forest); line-height: 1; width: 44px; height: 44px; }
+.modal-note { background: var(--cream); border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 8px; }
+
+/* Footer */
+.site-footer { background: var(--deep); color: #cdd9d2; padding-top: 56px; }
+.site-footer a { color: var(--gold-light); }
+.site-footer h3 { color: #fff; font-size: 1.05rem; font-family: var(--sans); }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 40px; padding-bottom: 36px; }
+.footer-grid ul { list-style: none; padding: 0; margin: 0; }
+.footer-grid li { margin-bottom: .4em; }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; border-top: 1px solid rgba(255, 255, 255, .15); padding: 20px 0; font-size: .9rem; }
+.footer-bottom p { margin: 0; }
+
+/* Legal pages */
+.doc-page { padding: 56px 0 80px; }
+.doc-page h1 { font-size: 2.2rem; }
+.doc-page h2 { font-size: 1.35rem; margin-top: 1.8em; }
+
+/* Reveal animation (only when JS is active) */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* Responsive */
+@media (max-width: 1060px) {
+  .nav-toggle { display: inline-flex; }
+  .js .primary-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; background: var(--deep); padding: 14px 20px 22px; border-bottom: 2px solid var(--gold); }
+  .js .primary-nav.open { display: flex; }
+  .primary-nav ul { flex-direction: column; }
+  .primary-nav li a:not(.btn) { display: block; padding: 12px; }
+  .primary-nav .btn { align-self: flex-start; }
+  .header-inner { position: relative; }
+}
+@media (max-width: 900px) {
+  .hero-grid, .about-grid, .uk-grid, .contact-panel, .footer-grid { grid-template-columns: 1fr; }
+  .hero-grid { padding: 48px 0 56px; }
+  .hero-visual { order: -1; max-width: 300px; margin-inline: auto; }
+  .section { padding: 60px 0; }
+  .contact-panel { padding: 30px 24px; }
+  .uk-grid { text-align: center; gap: 28px; }
+  .trust-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+  .form { padding: 22px 18px; }
+  .check-list.two-col { columns: 1; }
+  .btn-row .btn { width: 100%; }
+  .carousel { padding: 0; }
+  .car-btn { display: none; }
+  .brand-text small { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+@media print { .site-header, .hero-visual, .nav-toggle { display: none; } }
+
+</style>
+
+  <!-- Reusable SVG symbols -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="logo" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="30" fill="#0b3d2e" stroke="#c9a24b" stroke-width="2"/>
+      <circle cx="32" cy="23" r="10" fill="#e3c26f"/>
+      <circle cx="36" cy="21" r="8.5" fill="#0b3d2e"/>
+      <circle cx="40" cy="17" r="1.6" fill="#e3c26f"/>
+      <path d="M14 36c6-2 12-1 18 3 6-4 12-5 18-3v13c-6-2-12-1-18 3-6-4-12-5-18-3z" fill="#fff"/>
+      <path d="M32 39v13" stroke="#0b3d2e" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 6h18v12H3zM3 7l9 7 9-7"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 20l1.4-4.2A8 8 0 1 1 8.4 18.8z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M9 10c0 3 2 5 5 5l1-1.5-2-1-1 .8c-.8-.4-1.6-1.2-2-2l.8-1-1-2z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Online Quran Academy, home">
+        <svg class="brand-logo" aria-hidden="true"><use href="#logo"/></svg>
+        <span class="brand-text"><strong>Online Quran Academy</strong><small>Led by <span data-teacher>Hafiz Kainat</span></small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Menu</span><span class="bars" aria-hidden="true"></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Our Courses</a></li>
+          <li><a href="#eligibility">Eligibility</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <a class="btn btn-gold btn-sm" href="#enroll">Enroll Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="bismillah" lang="ar" dir="rtl" aria-label="Bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+          <h1>Learn the Holy Quran Online with <span class="gold">Hafiz Kainat</span></h1>
+          <p class="lead">Begin your Quran learning journey with personalized online lessons designed to help students read, understand, memorize, and recite the Holy Quran. Choose from our range of courses and learn comfortably in English or Urdu from your home.</p>
+          <div class="btn-row">
+            <a class="btn btn-gold" href="#courses">Explore Our Courses</a>
+            <a class="btn btn-outline-light" data-contact="whatsapp-link" href="https://wa.me/923363833575" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Contact Us on WhatsApp</a>
+          </div>
+          <ul class="trust-list" aria-label="Highlights">
+            <li><strong>5</strong><span>Quran Learning Programs</span></li>
+            <li><strong>EN &middot; UR</strong><span>English and Urdu Lessons</span></li>
+            <li><strong>1:1</strong><span>Personalized Online Learning</span></li>
+          </ul>
+          <div class="hero-eligibility" role="note">
+            <strong>Who can join?</strong>
+            <span>Girls and women of all ages &middot; Boys aged 15 and under. Boys over 15 are not eligible.</span>
+            <a href="#eligibility">Read the policy</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <svg class="hero-art" viewBox="0 0 400 400" role="img" aria-label="Decorative illustration of an open Quran beneath a crescent, framed by an Islamic geometric star">
+            <defs><linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0d88a"/><stop offset="1" stop-color="#b8902f"/></linearGradient></defs>
+            <circle cx="200" cy="200" r="190" fill="none" stroke="url(#gGold)" stroke-width="2" opacity=".7"/>
+            <circle cx="200" cy="200" r="172" fill="rgba(255,255,255,.04)" stroke="#c9a24b" stroke-opacity=".4"/>
+            <g fill="none" stroke="url(#gGold)" stroke-width="2">
+              <rect x="85" y="85" width="230" height="230" rx="4"/>
+              <rect x="85" y="85" width="230" height="230" rx="4" transform="rotate(45 200 200)"/>
+            </g>
+            <circle cx="200" cy="200" r="108" fill="#0b3d2e" stroke="#c9a24b" stroke-width="2"/>
+            <circle cx="200" cy="138" r="22" fill="url(#gGold)"/>
+            <circle cx="209" cy="132" r="18.5" fill="#0b3d2e"/>
+            <path d="M140 195c20-6 40-5 60 8 20-13 40-14 60-8v56c-20-6-40-5-60 8-20-13-40-14-60-8z" fill="#fff"/>
+            <path d="M200 203v56" stroke="#c9a24b" stroke-width="2"/>
+            <g stroke="#0b3d2e" stroke-opacity=".3" fill="none" stroke-width="1.5">
+              <path d="M150 210c14-3 28-2 42 6M150 223c14-3 28-2 42 6M150 236c14-3 28-2 42 6"/>
+              <path d="M250 210c-14-3-28-2-42 6M250 223c-14-3-28-2-42 6M250 236c-14-3-28-2-42 6"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="reveal">
+          <p class="eyebrow">About Our Academy</p>
+          <h2>A closer connection with the Holy Quran</h2>
+          <p>Our mission is to help students develop a stronger connection with the Holy Quran through structured learning, regular practice, and individual attention.</p>
+          <p>Our teaching focuses on:</p>
+          <ul class="check-list two-col">
+            <li>Correct Quran pronunciation</li>
+            <li>Memorization</li>
+            <li>Understanding</li>
+            <li>Tajweed</li>
+            <li>Foundational Arabic reading skills</li>
+          </ul>
+          <a class="btn btn-green" href="#courses">See our courses</a>
+        </div>
+        <aside class="teacher-card reveal" aria-labelledby="teacher-heading">
+          <div class="teacher-photo" id="teacherPhoto">
+            <svg class="placeholder-logo" aria-hidden="true"><use href="#logo"/></svg>
+            <span class="photo-label">Photograph of <span data-teacher>Hafiz Kainat</span></span>
+          </div>
+          <div class="teacher-body">
+            <p class="eyebrow">Meet Your Teacher</p>
+            <h3 id="teacher-heading"><span data-teacher>Hafiz Kainat</span></h3>
+            <p>Welcome to our Online Quran Academy, led by Hafiz Kainat. Our aim is to help students build a meaningful connection with the Holy Quran through structured lessons, personalized learning, and a supportive educational environment.</p>
+            <div class="owner-notice" data-owner-notice hidden><strong>Owner note:</strong> add a real photograph (see <code>teacherPhoto</code> in <code>config.js</code>). Add qualifications or experience here only when you want to share them and can state them accurately.</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ COURSES ============ -->
+    <section id="courses" class="section section-cream pattern">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Our Five Quran Courses</p>
+          <h2>Choose the path that fits the student</h2>
+          <p>Every course is taught online and adapted to the student's current level, in English or Urdu.</p>
+        </div>
+        <div class="course-grid" id="courseGrid"><noscript><p>Our courses: Quran Translation, Hifz-ul-Quran, Quran Reading Lessons, Noorani Qaida Lessons and Tajweed Lessons. Please enable JavaScript to see full details.</p></noscript></div>
+      </div>
+    </section>
+
+    <!-- ============ ELIGIBILITY ============ -->
+    <section id="eligibility" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Student Eligibility Policy</p>
+          <h2>Who Can Join Our Academy?</h2>
+          <p>So that every family knows before enquiring, our enrollment policy is stated clearly here.</p>
+        </div>
+        <div class="elig-grid">
+          <article class="elig-card yes reveal"><svg class="elig-ico" aria-hidden="true"><use href="#i-check"/></svg><h3>Girls and women</h3><p>Girls and women of <strong>all ages</strong> are welcome.</p></article>
+          <article class="elig-card yes reveal"><svg class="elig-ico" aria-hidden="true"><use href="#i-check"/></svg><h3>Boys aged 15 and under</h3><p>Boys aged <strong>15 and under</strong> are eligible to enroll.</p></article>
+          <article class="elig-card no reveal"><svg class="elig-ico" aria-hidden="true"><use href="#i-x"/></svg><h3>Boys over 15</h3><p>Boys over the age of 15 are <strong>not eligible</strong> to enroll.</p></article>
+        </div>
+        <p class="center reveal"><a class="btn btn-green" href="#enroll">Enroll Now</a></p>
+      </div>
+    </section>
+
+    <!-- ============ LANGUAGE ============ -->
+    <section id="language" class="section section-cream">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Language of Instruction</p>
+          <h2>Learn in English or Urdu</h2>
+          <p>All lessons are conducted in either English or Urdu. Students can choose their preferred language of instruction so they can learn comfortably and understand their lessons clearly.</p>
+        </div>
+        <div class="lang-grid">
+          <article class="lang-card reveal"><span class="lang-badge" aria-hidden="true">EN</span><h3>English Instruction</h3><p>Lessons explained in clear English, ideal for students who are most comfortable learning in English.</p></article>
+          <article class="lang-card reveal"><span class="lang-badge urdu" lang="ur" aria-hidden="true">اردو</span><h3>Urdu Instruction</h3><p>Lessons explained in Urdu, ideal for students who are most comfortable learning in Urdu.</p></article>
+        </div>
+        <p class="center muted reveal">You will choose your preferred language when you enroll.</p>
+      </div>
+    </section>
+
+    <!-- ============ UK COMMUNITY ============ -->
+    <section id="uk-community" class="section section-dark pattern">
+      <div class="container uk-grid">
+        <div class="ring-wrap reveal" role="img" aria-label="70 percent of our students are from the UK">
+          <svg class="ring" viewBox="0 0 140 140" aria-hidden="true">
+            <circle class="ring-bg" cx="70" cy="70" r="54"/>
+            <circle class="ring-fg" id="ukRing" cx="70" cy="70" r="54" stroke-dasharray="339.29" stroke-dashoffset="101.79" transform="rotate(-90 70 70)"/>
+          </svg>
+          <div class="ring-text"><span class="ring-num"><span data-uk-percent>70</span>%</span><span class="ring-sub">UK</span></div>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">Our UK Student Community</p>
+          <h2><span data-uk-percent>70</span>% of Our Students Are from the UK</h2>
+          <p>We welcome students from different communities and backgrounds, with <span data-uk-percent>70</span>% of our students based in the United Kingdom. Our online learning format allows eligible students to study the Quran from the comfort of their homes.</p>
+          <div class="owner-notice" data-owner-notice hidden><strong>Owner note:</strong> this percentage is the figure you supplied. Update it in <code>config.js</code> (<code>ukStudentPercent</code>) if it changes.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section id="reviews" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Reviews</p>
+          <h2>What Our Students and Parents Say</h2>
+        </div>
+        <div class="sample-banner" id="sampleBanner" role="note" hidden>
+          <strong>Preview only:</strong> the testimonials below are clearly labelled <em>sample</em> text used to show the design. They are not real reviews and no rating is shown. They will be replaced with verified feedback.
+        </div>
+        <div class="carousel" aria-roledescription="carousel" aria-label="Student and parent testimonials">
+          <button class="car-btn prev" type="button" aria-label="Previous testimonials">&#8249;</button>
+          <div class="car-track" id="carTrack" tabindex="0" aria-live="off"></div>
+          <button class="car-btn next" type="button" aria-label="Next testimonials">&#8250;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section id="how-it-works" class="section section-cream pattern">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">How Enrollment Works</p>
+          <h2>Four simple steps</h2>
+        </div>
+        <ol class="steps">
+          <li class="reveal"><span class="step-num">1</span><h3>Contact Us</h3><p>Tell us about the student's age, learning level, and preferred language.</p></li>
+          <li class="reveal"><span class="step-num">2</span><h3>Choose a Course</h3><p>Select Translation, Hifz, Quran Reading, Noorani Qaida, or Tajweed.</p></li>
+          <li class="reveal"><span class="step-num">3</span><h3>Discuss Your Learning Goals</h3><p>Contact <span data-teacher>Hafiz Kainat</span> to discuss the student's needs and lesson arrangements.</p></li>
+          <li class="reveal"><span class="step-num">4</span><h3>Start Learning</h3><p>Follow a structured learning plan and monitor progress.</p></li>
+        </ol>
+        <p class="center muted">Please check the <a href="#eligibility">eligibility policy</a> before enrolling: girls and women of all ages; boys aged 15 and under.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <p class="eyebrow">Contact Us</p>
+            <h2>Get in Touch with <span data-teacher>Hafiz Kainat</span></h2>
+            <p>Ready to begin your Quran learning journey? Contact Hafiz Kainat to discuss our courses, ask questions, and find the right learning path for you or your child.</p>
+            <div class="btn-row">
+              <a class="btn btn-gold" data-contact="email-link" href="mailto:KAINATERIZWAN1234@GMAIL.COM"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Email Us</a>
+              <a class="btn btn-outline-light" data-contact="whatsapp-link" href="https://wa.me/923363833575" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Contact on WhatsApp</a>
+              <a class="btn btn-outline-light" href="#enroll">Enroll Now</a>
+            </div>
+          </div>
+          <dl class="contact-list">
+            <div><dt>Teacher</dt><dd data-teacher>Hafiz Kainat</dd></div>
+            <div><dt>Email</dt><dd><a data-contact="email-link" data-contact-text="email" href="mailto:KAINATERIZWAN1234@GMAIL.COM">KAINATERIZWAN1234@GMAIL.COM</a></dd></div>
+            <div><dt>Phone / WhatsApp</dt><dd><a data-contact="whatsapp-link" data-contact-text="phone" href="https://wa.me/923363833575" target="_blank" rel="noopener">03363833575</a></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ENROLLMENT FORM ============ -->
+    <section id="enroll" class="section section-cream">
+      <div class="container narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow">Enroll Now</p>
+          <h2>Enrollment Enquiry Form</h2>
+          <p>Tell us a little about the student and we will help find the right course.</p>
+        </div>
+
+        <div class="elig-inline" role="note">
+          <strong>Eligibility:</strong> girls and women of all ages are welcome; boys aged 15 and under are eligible; boys over the age of 15 are not eligible to enroll.
+        </div>
+
+        <div class="owner-notice" data-owner-notice hidden><strong>Owner note:</strong> the form is not connected to a delivery service yet. Until you set <code>formEndpoint</code> in <code>config.js</code> (see README, "Connect the form"), submissions are <em>not sent</em>; visitors are shown WhatsApp and email buttons instead, and no success message appears.</div>
+
+        <form id="enrollForm" class="form" novalidate>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite" tabindex="-1" hidden></div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="studentName">Student's name <span class="req" aria-hidden="true">*</span></label>
+              <input id="studentName" name="studentName" type="text" autocomplete="off" required aria-describedby="err-studentName">
+              <p class="field-error" id="err-studentName" hidden></p>
+            </div>
+            <div class="field">
+              <label for="studentAge">Student's age <span class="req" aria-hidden="true">*</span></label>
+              <input id="studentAge" name="studentAge" type="number" min="3" max="100" inputmode="numeric" required aria-describedby="err-studentAge">
+              <p class="field-error" id="err-studentAge" hidden></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="guardianName">Parent or guardian's name <span class="hint" id="guardianHint">(if applicable)</span></label>
+            <input id="guardianName" name="guardianName" type="text" autocomplete="name" aria-describedby="guardianHint err-guardianName">
+            <p class="field-error" id="err-guardianName" hidden></p>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="course">Preferred course <span class="req" aria-hidden="true">*</span></label>
+              <select id="course" name="course" required aria-describedby="err-course"><option value="">Select a course</option></select>
+              <p class="field-error" id="err-course" hidden></p>
+            </div>
+            <div class="field">
+              <label for="level">Current Quran reading level <span class="req" aria-hidden="true">*</span></label>
+              <select id="level" name="level" required aria-describedby="err-level">
+                <option value="">Select a level</option>
+                <option>Complete beginner</option>
+                <option>Knows some Arabic letters</option>
+                <option>Reading with Noorani Qaida</option>
+                <option>Reading the Quran slowly</option>
+                <option>Reading the Quran fluently</option>
+                <option>Currently memorizing</option>
+                <option>Not sure</option>
+              </select>
+              <p class="field-error" id="err-level" hidden></p>
+            </div>
+          </div>
+
+          <fieldset class="field" aria-describedby="err-language">
+            <legend>Preferred language of lessons <span class="req" aria-hidden="true">*</span></legend>
+            <div class="radio-row">
+              <label class="radio"><input type="radio" name="language" value="English"> English</label>
+              <label class="radio"><input type="radio" name="language" value="Urdu"> Urdu</label>
+            </div>
+            <p class="field-error" id="err-language" hidden></p>
+          </fieldset>
+
+          <div class="field">
+            <label for="country">Country of residence <span class="req" aria-hidden="true">*</span></label>
+            <input id="country" name="country" type="text" list="countryList" autocomplete="country-name" required aria-describedby="err-country">
+            <datalist id="countryList"><option value="United Kingdom"><option value="Pakistan"></datalist>
+            <p class="field-error" id="err-country" hidden></p>
+          </div>
+
+          <fieldset class="field" aria-describedby="err-method">
+            <legend>Preferred contact method <span class="req" aria-hidden="true">*</span></legend>
+            <div class="radio-row">
+              <label class="radio"><input type="radio" name="method" value="WhatsApp"> WhatsApp</label>
+              <label class="radio"><input type="radio" name="method" value="Email"> Email</label>
+            </div>
+            <p class="field-error" id="err-method" hidden></p>
+          </fieldset>
+
+          <div class="field">
+            <label for="contactDetail">WhatsApp number or email address <span class="req" aria-hidden="true">*</span></label>
+            <input id="contactDetail" name="contactDetail" type="text" autocomplete="off" required aria-describedby="detailHint err-contactDetail">
+            <p class="hint" id="detailHint">Include the country code for a WhatsApp number, e.g. +44 7xxx xxxxxx.</p>
+            <p class="field-error" id="err-contactDetail" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="goals">Additional questions or learning goals</label>
+            <textarea id="goals" name="goals" rows="4"></textarea>
+          </div>
+
+          <div class="hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+
+          <div class="field ack">
+            <label class="checkbox"><input id="ack" name="ack" type="checkbox" required aria-describedby="err-ack">
+              <span>I confirm that the student meets the eligibility policy: girls and women of all ages, or boys aged 15 and under. I understand that boys over the age of 15 are not eligible to enroll. <span class="req" aria-hidden="true">*</span></span></label>
+            <p class="field-error" id="err-ack" hidden></p>
+          </div>
+
+          <button class="btn btn-green btn-block" type="submit" id="submitBtn">Send Enquiry</button>
+          <p class="muted small">Fields marked * are required. Your details are used only to respond to your enquiry. See our <a href="privacy.html">Privacy Policy</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="section">
+      <div class="container narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQs</p>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item" name="faq"><summary>Which courses do you offer?</summary><div class="faq-a"><p>We offer Quran Translation, Hifz-ul-Quran, Quran Reading Lessons, Noorani Qaida, and Tajweed Lessons.</p></div></details>
+          <details class="faq-item" name="faq"><summary>Which languages are lessons taught in?</summary><div class="faq-a"><p>All lessons are conducted in English or Urdu. Students can choose their preferred language.</p></div></details>
+          <details class="faq-item" name="faq"><summary>Can beginners join?</summary><div class="faq-a"><p>Yes, eligible beginners can start with Noorani Qaida and progress toward Quran reading at their own pace.</p></div></details>
+          <details class="faq-item" name="faq"><summary>Can children enroll?</summary><div class="faq-a"><p>Girls of all ages are welcome. Boys aged 15 and under are eligible to enroll. Boys over 15 are not eligible.</p></div></details>
+          <details class="faq-item" name="faq"><summary>How does Hifz work?</summary><div class="faq-a"><p>Students follow a structured memorization and revision routine tailored to their individual ability and progress.</p></div></details>
+          <details class="faq-item" name="faq"><summary>What is the difference between Qaida and Tajweed?</summary><div class="faq-a"><p>Qaida builds foundational Arabic reading skills, while Tajweed teaches the rules for correct Quranic recitation.</p></div></details>
+          <details class="faq-item" name="faq"><summary>Who is the teacher?</summary><div class="faq-a"><p>Our academy is led by <span data-teacher>Hafiz Kainat</span>.</p></div></details>
+          <details class="faq-item" name="faq"><summary>How can I contact the academy?</summary><div class="faq-a"><p>Email <a data-contact="email-link" data-contact-text="email" href="mailto:KAINATERIZWAN1234@GMAIL.COM">KAINATERIZWAN1234@GMAIL.COM</a> or contact us on WhatsApp at <a data-contact="whatsapp-link" data-contact-text="phone" href="https://wa.me/923363833575" target="_blank" rel="noopener">03363833575</a>.</p></div></details>
+          <details class="faq-item" name="faq"><summary>Are lessons online?</summary><div class="faq-a"><p>Yes, the academy provides online Quran learning for eligible students.</p></div></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#home"><svg class="brand-logo" aria-hidden="true"><use href="#logo"/></svg><span class="brand-text"><strong>Online Quran Academy</strong><small>Led by <span data-teacher>Hafiz Kainat</span></small></span></a>
+        <p>Online Quran learning with personalized lessons in English or Urdu, helping eligible students read, understand, memorize, and recite the Holy Quran.</p>
+        <p><strong>Teacher:</strong> <span data-teacher>Hafiz Kainat</span></p>
+        <p><a data-contact="email-link" data-contact-text="email" href="mailto:KAINATERIZWAN1234@GMAIL.COM">KAINATERIZWAN1234@GMAIL.COM</a></p>
+        <p>WhatsApp: <a data-contact="whatsapp-link" data-contact-text="phone" href="https://wa.me/923363833575" target="_blank" rel="noopener">03363833575</a></p>
+      </div>
+      <div>
+        <h3>Our Courses</h3>
+        <ul>
+          <li><a href="#course-translation">Quran Translation</a></li>
+          <li><a href="#course-hifz">Hifz-ul-Quran</a></li>
+          <li><a href="#course-reading">Quran Reading Lessons</a></li>
+          <li><a href="#course-qaida">Noorani Qaida Lessons</a></li>
+          <li><a href="#course-tajweed">Tajweed Lessons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Languages</h3>
+        <p>Lessons are taught in <strong>English</strong> or <strong>Urdu</strong>, your choice.</p>
+        <h3>Student Eligibility</h3>
+        <p>Girls and women of all ages are welcome. Boys aged 15 and under are eligible. Boys over 15 are not eligible. <a href="#eligibility">Full policy</a></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> Online Quran Academy. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms and Conditions</a></p>
+    </div>
+  </footer>
+
+  <dialog id="courseModal" class="modal" aria-labelledby="modalTitle">
+    <div class="modal-inner">
+      <button class="modal-close" type="button" aria-label="Close">&times;</button>
+      <div class="course-icon" id="modalIcon" aria-hidden="true"></div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <h4 class="small-h">Students can learn</h4>
+      <ul class="check-list" id="modalList"></ul>
+      <p class="modal-note" id="modalNote"></p>
+      <div class="btn-row">
+        <button class="btn btn-green" type="button" id="modalEnroll">Enroll in this course</button>
+        <button class="btn btn-outline-green" type="button" id="modalCancel">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+/* ==========================================================================
+   EASY-EDIT CONFIGURATION
+   Everything the academy is likely to change lives here.
+   After editing, just refresh the page. No build step is needed.
+   ========================================================================== */
+window.ACADEMY_CONFIG = {
+  /* ---- Teacher & contact (official details supplied by the academy) ---- */
+  teacherName: "Hafiz Kainat",
+  email: "KAINATERIZWAN1234@GMAIL.COM",
+  phoneDisplay: "03363833575",
+  // International format for wa.me links: country code 92 (Pakistan), no leading zero, no "+".
+  whatsappNumberIntl: "923363833575",
+
+  /* ---- UK student statistic (supplied by the academy) ---- */
+  ukStudentPercent: 70,
+
+  /* ---- Teacher photograph ----
+     Put a real photo in the /assets folder (e.g. assets/hafiz-kainat.jpg),
+     then set the path below. Leave "" to show the placeholder. */
+  teacherPhoto: "",
+
+  /* ---- Enrollment form delivery ----
+     The form will NOT claim success unless this endpoint accepts the submission.
+     Paste a form-service URL here (for example a Formspree endpoint such as
+     "https://formspree.io/f/xxxxxxxx"). See README.md, section "Connect the form".
+     Leave "" until you have set one up. */
+  formEndpoint: "",
+  // Extra fields some services require (e.g. Web3Forms: { access_key: "YOUR_KEY" }).
+  formExtraFields: {},
+
+  /* ---- Owner notices ----
+     While true, dashed amber "Owner note" boxes show what still needs configuring.
+     Set to false before publishing. (Sample-testimonial labels stay visible regardless.) */
+  showOwnerNotices: true,
+
+  /* ---- Courses ---- */
+  courses: [
+    {
+      id: "translation",
+      icon: "translation",
+      title: "Quran Translation",
+      description: "Explore the meanings of the Holy Quran through clear translations and guided explanations.",
+      outcomes: [
+        "The meanings of Quranic verses in their chosen language.",
+        "Important Arabic vocabulary and expressions.",
+        "The general message and context of selected verses.",
+        "Lessons and reflections from Quranic teachings.",
+        "How to develop a deeper understanding of the Quran."
+      ],
+      note: "Translation communicates the meaning of the Arabic text and does not replace the original Quranic Arabic."
+    },
+    {
+      id: "hifz",
+      icon: "hifz",
+      title: "Hifz-ul-Quran",
+      description: "Memorize the Holy Quran through a structured program tailored to each student's learning pace and ability.",
+      outcomes: [
+        "Step-by-step Quran memorization.",
+        "Regular memorization targets.",
+        "Revision of previously memorized passages.",
+        "Recitation practice.",
+        "Techniques for strengthening long-term retention.",
+        "Progress tracking and encouragement."
+      ],
+      note: "Regular revision is essential. Progress depends on each student's ability and consistency, so no completion date is guaranteed."
+    },
+    {
+      id: "reading",
+      icon: "reading",
+      title: "Quran Reading Lessons",
+      description: "Develop the skills needed to read the Holy Quran in Arabic with greater accuracy, confidence, and fluency.",
+      outcomes: [
+        "Recognition of Arabic letters.",
+        "Correct letter sounds and pronunciation.",
+        "Joining letters to form words.",
+        "Reading Quranic verses step by step.",
+        "Guided recitation practice.",
+        "Gradual improvement in reading fluency."
+      ],
+      note: "The learning plan is adapted to each student's current level."
+    },
+    {
+      id: "qaida",
+      icon: "qaida",
+      title: "Noorani Qaida Lessons",
+      description: "Build a strong foundation for Quran reading with structured, beginner-friendly Noorani Qaida lessons.",
+      outcomes: [
+        "Arabic letters and their pronunciation.",
+        "Letter shapes and joining letters.",
+        "Harakat: Fatha, Kasra, and Damma.",
+        "Sukoon and Tanween.",
+        "Basic letter combinations.",
+        "Madd and introductory reading rules.",
+        "Gradual preparation for Quran reading."
+      ],
+      note: "Noorani Qaida helps beginners build the foundational skills needed to read Arabic and the Quran."
+    },
+    {
+      id: "tajweed",
+      icon: "tajweed",
+      title: "Tajweed Lessons",
+      description: "Improve your Quran recitation by learning the established rules of Tajweed and applying them through guided practice.",
+      outcomes: [
+        "Makharij al-Huruf (points of articulation).",
+        "Sifat al-Huruf (characteristics of letters).",
+        "Rules of Noon Sakinah and Tanween.",
+        "Rules of Meem Sakinah.",
+        "Qalqalah.",
+        "Madd and elongation.",
+        "Rules of stopping and starting.",
+        "Practical recitation exercises."
+      ],
+      note: "Tajweed helps students recite the Quran according to established pronunciation and recitation rules."
+    }
+  ],
+
+  /* ---- Testimonials ----
+     IMPORTANT: The entries below are SAMPLES for design preview only and are
+     labelled as such on the page. Replace them with real, permission-approved
+     feedback and set  sample: false  on each real one. The "Sample testimonial"
+     label and the preview banner disappear automatically only when no samples remain. */
+  testimonials: [
+    {
+      sample: true,
+      topic: "Progress in Quran reading",
+      text: "We have noticed steady improvement in reading, with more confidence at every lesson.",
+      author: "Sample testimonial"
+    },
+    {
+      sample: true,
+      topic: "Noorani Qaida for children",
+      text: "The Noorani Qaida lessons are patient and well structured, and my child looks forward to them.",
+      author: "Sample testimonial"
+    },
+    {
+      sample: true,
+      topic: "Tajweed and recitation",
+      text: "Practising the Tajweed rules step by step has helped my recitation become clearer.",
+      author: "Sample testimonial"
+    },
+    {
+      sample: true,
+      topic: "English or Urdu lessons",
+      text: "Being able to choose Urdu made it much easier for us to follow and understand each lesson.",
+      author: "Sample testimonial"
+    },
+    {
+      sample: true,
+      topic: "Hifz revision routine",
+      text: "A regular revision routine keeps previously memorized passages fresh and gives us a clear plan.",
+      author: "Sample testimonial"
+    }
+  ]
+};
+
+</script>
+  <script>
+/* Online Quran Academy: site behaviour. Content comes from config.js. */
+(function () {
+  'use strict';
+  var C = window.ACADEMY_CONFIG || {};
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var esc = function (s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+
+  /* ---------- Contact details & teacher name ---------- */
+  var waDigits = String(C.whatsappNumberIntl || '').replace(/\D/g, '');
+  var waLink = waDigits ? 'https://wa.me/' + waDigits : '';
+  var mailLink = C.email ? 'mailto:' + C.email : '';
+  $$('[data-contact="whatsapp-link"]').forEach(function (a) { if (waLink) a.href = waLink; });
+  $$('[data-contact="email-link"]').forEach(function (a) { if (mailLink) a.href = mailLink; });
+  $$('[data-contact-text="email"]').forEach(function (e) { if (C.email) e.textContent = C.email; });
+  $$('[data-contact-text="phone"]').forEach(function (e) { if (C.phoneDisplay) e.textContent = C.phoneDisplay; });
+  $$('[data-teacher]').forEach(function (e) { if (C.teacherName) e.textContent = C.teacherName; });
+
+  var yr = $('#year'); if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ---------- Owner notices ---------- */
+  $$('[data-owner-notice]').forEach(function (n) {
+    if (C.showOwnerNotices) n.hidden = false; else n.remove();
+  });
+
+  /* ---------- UK statistic ---------- */
+  var pct = Number(C.ukStudentPercent);
+  if (isFinite(pct)) {
+    pct = Math.max(0, Math.min(100, pct));
+    $$('[data-uk-percent]').forEach(function (e) { e.textContent = pct; });
+    var ring = $('#ukRing');
+    if (ring) {
+      var circ = 2 * Math.PI * 54;
+      ring.setAttribute('stroke-dasharray', circ.toFixed(2));
+      ring.setAttribute('stroke-dashoffset', (circ * (1 - pct / 100)).toFixed(2));
+    }
+    var wrap = $('.ring-wrap'); if (wrap) wrap.setAttribute('aria-label', pct + ' percent of our students are from the UK');
+  }
+
+  /* ---------- Teacher photo ---------- */
+  var photoBox = $('#teacherPhoto');
+  if (photoBox && C.teacherPhoto) {
+    var img = new Image();
+    img.alt = (C.teacherName || 'Teacher');
+    img.loading = 'lazy'; img.decoding = 'async';
+    img.onload = function () { photoBox.innerHTML = ''; photoBox.classList.add('has-photo'); photoBox.appendChild(img); };
+    img.src = C.teacherPhoto;
+  }
+
+  /* ---------- Course icons ---------- */
+  var ICONS = {
+    translation: '<path d="M4 5h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M9 9h5M9 12h3"/>',
+    hifz: '<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>',
+    reading: '<path d="M2 5c3-1 6-1 10 1 4-2 7-2 10-1v14c-3-1-6-1-10 1-4-2-7-2-10-1z"/><path d="M12 6v14"/>',
+    qaida: '<rect x="3" y="3" width="18" height="18" rx="3"/><text x="12" y="17.5" text-anchor="middle" font-size="14" fill="currentColor" stroke="none" font-family="serif">ا</text>',
+    tajweed: '<path d="M3 12h1M7 8v8M11 4v16M15 7v10M19 10v4M21 12h0"/>'
+  };
+  function iconSvg(key) {
+    return '<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[key] || ICONS.reading) + '</svg>';
+  }
+
+  /* ---------- Courses ---------- */
+  var courses = C.courses || [];
+  var grid = $('#courseGrid');
+  if (grid) {
+    grid.innerHTML = courses.map(function (c) {
+      var shown = c.outcomes.slice(0, 3), more = c.outcomes.length - shown.length;
+      return '<article class="course-card reveal" id="course-' + esc(c.id) + '">' +
+        '<div class="course-icon">' + iconSvg(c.icon) + '</div>' +
+        '<h3>' + esc(c.title) + '</h3>' +
+        '<p class="course-desc">' + esc(c.description) + '</p>' +
+        '<h4 class="small-h">Students can learn</h4>' +
+        '<ul class="check-list">' + shown.map(function (o) { return '<li>' + esc(o) + '</li>'; }).join('') + '</ul>' +
+        (more > 0 ? '<p class="more-count">+ ' + more + ' more topic' + (more > 1 ? 's' : '') + '</p>' : '') +
+        '<button class="btn btn-outline-green" type="button" data-course-open="' + esc(c.id) + '">Learn More<span class="sr-only"> about ' + esc(c.title) + '</span></button>' +
+        '</article>';
+    }).join('');
+  }
+
+  /* ---------- Course select in the form ---------- */
+  var courseSelect = $('#course');
+  if (courseSelect) {
+    courses.forEach(function (c) {
+      var o = document.createElement('option'); o.value = c.title; o.textContent = c.title; courseSelect.appendChild(o);
+    });
+    var notSure = document.createElement('option'); notSure.value = 'Not sure yet'; notSure.textContent = 'Not sure yet, I would like advice'; courseSelect.appendChild(notSure);
+  }
+
+  /* ---------- Course modal ---------- */
+  var modal = $('#courseModal');
+  var lastTrigger = null;
+  var currentCourse = null;
+  function openCourse(id, trigger) {
+    var c = courses.filter(function (x) { return x.id === id; })[0];
+    if (!c || !modal || typeof modal.showModal !== 'function') return;
+    currentCourse = c; lastTrigger = trigger || null;
+    $('#modalIcon').innerHTML = iconSvg(c.icon);
+    $('#modalTitle').textContent = c.title;
+    $('#modalDesc').textContent = c.description;
+    $('#modalList').innerHTML = c.outcomes.map(function (o) { return '<li>' + esc(o) + '</li>'; }).join('');
+    var note = $('#modalNote'); note.textContent = c.note || ''; note.hidden = !c.note;
+    modal.showModal();
+  }
+  function closeModal() { if (modal && modal.open) modal.close(); }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-course-open]') : null;
+    if (t) openCourse(t.getAttribute('data-course-open'), t);
+  });
+  if (modal) {
+    $('.modal-close', modal).addEventListener('click', closeModal);
+    $('#modalCancel').addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    modal.addEventListener('close', function () { if (lastTrigger) lastTrigger.focus(); });
+    $('#modalEnroll').addEventListener('click', function () {
+      var course = currentCourse; lastTrigger = null; closeModal();
+      if (course && courseSelect) courseSelect.value = course.title;
+      var target = $('#enroll'); if (target) target.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(function () { var f = $('#studentName'); if (f) f.focus({ preventScroll: true }); }, 450);
+    });
+  }
+
+  /* ---------- Testimonials carousel ---------- */
+  var track = $('#carTrack');
+  var tests = C.testimonials || [];
+  if (track) {
+    track.innerHTML = tests.map(function (t) {
+      return '<figure class="tcard">' +
+        (t.sample ? '<span class="sample-tag">Sample testimonial &middot; preview only</span>' : '') +
+        '<span class="quote-mark" aria-hidden="true">&ldquo;</span>' +
+        '<p class="topic">' + esc(t.topic) + '</p>' +
+        '<blockquote>' + esc(t.text) + '</blockquote>' +
+        '<figcaption>' + esc(t.author) + '</figcaption></figure>';
+    }).join('');
+    var banner = $('#sampleBanner');
+    if (banner) banner.hidden = !tests.some(function (t) { return t.sample; });
+    var step = function (dir) {
+      var card = $('.tcard', track);
+      var w = card ? card.getBoundingClientRect().width + 20 : track.clientWidth;
+      track.scrollBy({ left: dir * w, behavior: 'smooth' });
+    };
+    $('.car-btn.prev').addEventListener('click', function () { step(-1); });
+    $('.car-btn.next').addEventListener('click', function () { step(1); });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+    });
+  }
+
+  /* ---------- Mobile navigation ---------- */
+  var toggle = $('.nav-toggle'), nav = $('#primary-nav');
+  if (toggle && nav) {
+    var setNav = function (open) {
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', function () { setNav(!nav.classList.contains('open')); });
+    nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setNav(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) { setNav(false); toggle.focus(); }
+    });
+  }
+
+  /* ---------- Active nav link + reveal on scroll ---------- */
+  if ('IntersectionObserver' in window) {
+    var links = {};
+    $$('#primary-nav a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var secObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && links[en.target.id]) {
+          Object.keys(links).forEach(function (k) { links[k].removeAttribute('aria-current'); });
+          links[en.target.id].setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(links).forEach(function (id) { var s = document.getElementById(id); if (s) secObs.observe(s); });
+
+    var revObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); revObs.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    $$('.reveal').forEach(function (el) { revObs.observe(el); });
+  } else {
+    $$('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Enrollment form ---------- */
+  var form = $('#enrollForm');
+  if (!form) return;
+  var statusBox = $('#formStatus');
+  var submitBtn = $('#submitBtn');
+  var FIELDS = ['studentName', 'studentAge', 'guardianName', 'course', 'level', 'language', 'country', 'method', 'contactDetail', 'ack'];
+
+  function val(name) {
+    var el = form.elements[name];
+    if (!el) return '';
+    if (el.length && el[0] && el[0].type === 'radio') {
+      var chosen = Array.prototype.filter.call(el, function (r) { return r.checked; })[0];
+      return chosen ? chosen.value : '';
+    }
+    if (el.type === 'checkbox') return el.checked ? 'yes' : '';
+    return String(el.value || '').trim();
+  }
+
+  function validate() {
+    var errors = {};
+    if (!val('studentName')) errors.studentName = "Please enter the student's name.";
+    var age = Number(val('studentAge'));
+    if (!val('studentAge')) errors.studentAge = "Please enter the student's age.";
+    else if (!isFinite(age) || age < 3 || age > 100 || Math.floor(age) !== age) errors.studentAge = 'Please enter a valid age in whole years (3 to 100).';
+    else if (age < 18 && !val('guardianName')) errors.guardianName = "Please enter a parent or guardian's name for students under 18.";
+    if (!val('course')) errors.course = 'Please choose a course.';
+    if (!val('level')) errors.level = "Please select the student's current reading level.";
+    if (!val('language')) errors.language = 'Please choose English or Urdu.';
+    if (!val('country')) errors.country = 'Please enter the country of residence.';
+    if (!val('method')) errors.method = 'Please choose a contact method.';
+    var detail = val('contactDetail');
+    if (!detail) errors.contactDetail = 'Please enter a WhatsApp number or email address.';
+    else if (val('method') === 'Email') {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(detail)) errors.contactDetail = 'Please enter a valid email address.';
+    } else if (val('method') === 'WhatsApp') {
+      if (!/^\+?\d{7,15}$/.test(detail.replace(/[\s\-()]/g, ''))) errors.contactDetail = 'Please enter a valid WhatsApp number, including the country code.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(detail) && !/^\+?\d{7,15}$/.test(detail.replace(/[\s\-()]/g, ''))) {
+      errors.contactDetail = 'Please enter a valid WhatsApp number or email address.';
+    }
+    if (!val('ack')) errors.ack = 'Please confirm the eligibility policy to continue.';
+    return errors;
+  }
+
+  function showErrors(errors) {
+    var firstInvalid = null;
+    FIELDS.forEach(function (name) {
+      var p = $('#err-' + name);
+      var els = form.elements[name];
+      var list = els && els.length && els.tagName !== 'SELECT' ? Array.prototype.slice.call(els) : [els];
+      if (errors[name]) {
+        if (p) { p.textContent = errors[name]; p.hidden = false; }
+        list.forEach(function (el) { if (el && el.setAttribute) el.setAttribute('aria-invalid', 'true'); });
+        if (!firstInvalid) firstInvalid = list[0];
+      } else {
+        if (p) { p.textContent = ''; p.hidden = true; }
+        list.forEach(function (el) { if (el && el.removeAttribute) el.removeAttribute('aria-invalid'); });
+      }
+    });
+    return firstInvalid;
+  }
+
+  function setStatus(kind, html) {
+    statusBox.className = 'form-status ' + kind;
+    statusBox.innerHTML = html;
+    statusBox.hidden = false;
+    statusBox.focus();
+    statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function summaryText(d) {
+    return [
+      'Assalamu alaikum, I would like to enquire about Quran lessons.',
+      '',
+      "Student's name: " + d.studentName,
+      "Student's age: " + d.studentAge,
+      'Parent/guardian: ' + (d.guardianName || 'n/a'),
+      'Preferred course: ' + d.course,
+      'Preferred language: ' + d.language,
+      'Current reading level: ' + d.level,
+      'Country: ' + d.country,
+      'Preferred contact: ' + d.method + ' (' + d.contactDetail + ')',
+      'Goals/questions: ' + (d.goals || 'n/a'),
+      'Eligibility policy acknowledged: yes'
+    ].join('\n');
+  }
+
+  function collect() {
+    return {
+      studentName: val('studentName'), studentAge: val('studentAge'), guardianName: val('guardianName'),
+      course: val('course'), level: val('level'), language: val('language'), country: val('country'),
+      method: val('method'), contactDetail: val('contactDetail'), goals: val('goals'),
+      eligibilityAcknowledged: 'yes'
+    };
+  }
+
+  function fallbackHtml(d, headline, detail) {
+    var text = summaryText(d);
+    var wa = waLink ? waLink + '?text=' + encodeURIComponent(text) : '';
+    var mail = mailLink ? mailLink + '?subject=' + encodeURIComponent('Quran lessons enquiry: ' + d.studentName) + '&body=' + encodeURIComponent(text) : '';
+    return '<strong>' + headline + '</strong><p>' + detail + '</p><div class="btn-row">' +
+      (wa ? '<a class="btn btn-green" href="' + wa + '" target="_blank" rel="noopener">Send on WhatsApp</a>' : '') +
+      (mail ? '<a class="btn btn-outline-green" href="' + mail + '">Send by Email</a>' : '') + '</div>';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    statusBox.hidden = true;
+    var errors = validate();
+    var first = showErrors(errors);
+    if (first) { first.focus(); return; }
+    if (val('_gotcha')) return; // honeypot: silently drop bot submissions
+
+    var data = collect();
+
+    if (!C.formEndpoint) {
+      if (window.console) console.info('[Quran Academy] formEndpoint is empty in config.js, so the enquiry was NOT sent. See README, "Connect the form".');
+      setStatus('info', fallbackHtml(data, 'Your enquiry has not been sent yet.',
+        'Online submission is not switched on for this website yet. Your details are ready, so please send them to Hafiz Kainat using one of the buttons below.'));
+      return;
+    }
+
+    var payload = {};
+    Object.keys(data).forEach(function (k) { payload[k] = data[k]; });
+    Object.keys(C.formExtraFields || {}).forEach(function (k) { payload[k] = C.formExtraFields[k]; });
+
+    submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
+    fetch(C.formEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      form.reset();
+      setStatus('success', '<strong>JazakAllah Khair. Your enquiry has been sent.</strong><p>Hafiz Kainat will contact you using your preferred method.</p>');
+    }).catch(function () {
+      setStatus('error', fallbackHtml(data, 'Sorry, we could not send your enquiry.',
+        'Something went wrong, so nothing has been sent. Please try again, or send your details directly using a button below.'));
+    }).then(function () {
+      submitBtn.disabled = false; submitBtn.textContent = 'Send Enquiry';
+    });
+  });
+
+  // Clear a field's error as soon as the user edits it.
+  form.addEventListener('input', function (e) {
+    var n = e.target.name; if (!n) return;
+    var p = $('#err-' + n); if (p && !p.hidden) { p.hidden = true; p.textContent = ''; e.target.removeAttribute('aria-invalid'); }
+  });
+})();
+
+</script>
+
+</body></html>
